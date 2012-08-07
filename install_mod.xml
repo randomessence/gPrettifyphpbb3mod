@@ -37,15 +37,14 @@
 		<open src="styles/prosilver/template/overall_footer.html">
 			<edit>
 				<find><![CDATA[<div id="page-footer">]]></find>
-				<action type="after-add"><![CDATA[<!-- IF S_VIEWTOPIC -->
+				<action type="after-add"><![CDATA[
 <script type="text/javascript">
         var theonload = window.onload;
         window.onload = function(){
             theonload();
             prettyPrint();
         }
-</script>
-<!-- ENDIF -->]]></action>
+</script>]]></action>
 			</edit>
 		</open>
 		<open src="styles/prosilver/template/overall_header.html">
