@@ -36,3 +36,8 @@ you can do this for example:
 
 `<pre class="prettyprint" style="border-radius:5px;"><code>{TEXT}</code></pre>`
 
+-------------
+
+extra themes are from
+
+https://github.com/jmblog
