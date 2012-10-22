@@ -102,6 +102,14 @@ pre.prettyprint {
   line-height: 1.5;
   border: 1px solid #ccc;
   padding: 10px; }
+  
+code.prettyprint {
+  background: black;
+  font-family: Menlo, Monaco, Consolas, monospace;
+  font-size: 12px;
+  line-height: 1.5;
+  border: 1px solid #ccc;
+  padding: 10px; }
 
 /* Specify class=linenums on a pre to get line numbering */
 ol.linenums {
