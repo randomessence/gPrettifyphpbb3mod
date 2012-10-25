@@ -8,24 +8,45 @@
 		<license><![CDATA[http://opensource.org/licenses/gpl-license.php GNU General Public License v2]]></license>
 		<title lang="en"><![CDATA[Google Prettify automatic code highlighting]]></title>
 		<description lang="en"><![CDATA[this uses the Google Prettify javascript to automatically detect and prettify code used in the stock/default phpbb3 code tag. Syntax is automatically detected by Google prettify.]]></description>
-		<author-notes lang="en"><![CDATA[nothing special. once the mod is installed apply it to your styles then refresh templates if needed.]]></author-notes>
+		<author-notes lang="en"><![CDATA[nothing special. once the mod is installed apply it to your styles then refresh templates if needed. change styles in the General/Board Settings page.]]></author-notes>
 		<author-group>
 			<author>
 				<username><![CDATA[randomessence]]></username>
 			</author>
 		</author-group>
-		<mod-version>1.0.0</mod-version>
+		<mod-version>1.0.1</mod-version>
 		<installation>
 			<level>easy</level>
 			<time>60</time>
-			<target-version>3.0.10</target-version>
+			<target-version>3.0.11</target-version>
 		</installation>
 	</header>
 	<action-group>
+		<sql><![CDATA[INSERT IGNORE INTO `phpbb_config` (`config_name`, `config_value`, `is_dynamic`) VALUES('gopr_theme', 'prettify', 0);]]></sql>
 		<copy>
 			<file from="root/js/prettify/js/*.*" to="js/prettify/js/*.*"/>
 			<file from="root/js/prettify/css/*.*" to="js/prettify/css/*.*"/>
 		</copy>
+		<open src="includes/functions.php">
+			<edit>
+				<find><![CDATA[		'SITE_DESCRIPTION'				=> $config['site_desc'],]]></find>
+				<action type="after-add"><![CDATA[		'GOPR_THEME'					=> $config['gopr_theme'],]]></action>
+			</edit>
+		</open>
+		<open src="includes/acp/acp_board.php">
+			<edit>
+				<find><![CDATA[						'site_desc'				=> array('lang' => 'SITE_DESC',				'validate' => 'string',	'type' => 'text:40:255', 'explain' => false),]]></find>
+				<action type="after-add"><![CDATA[						'gopr_theme'			=> array('lang' => 'GOPR_THEME_NAME',		'validate' => 'string',	'type' => 'text:40:255', 'explain' => true),]]></action>
+			</edit>
+		</open>
+		<open src="language/en/acp/board.php">
+			<edit>
+				<find><![CDATA[	'JAB_USERNAME_EXPLAIN'		=> 'Specify a registered username or a valid JID. The username will not be checked for validity. If you only specify a username, then your JID will be the username and the server you specified above. Else, specify a valid JID, for example user@jabber.org.',]]></find>
+				<action type="after-add"><![CDATA[// Google Prettify Theme
+	'GOPR_THEME_NAME'				=> 'Google Prettify Theme',
+	'GOPR_THEME_NAME_EXPLAIN'		=> 'To change the theme to one of the included themes you need to specify the theme name here. A theme name is the name of the css file. So for sunburst.css we enter: sunburst.',]]></action>
+			</edit>
+		</open>
 		<open src="styles/prosilver/template/bbcode.html">
 			<edit>
 				<find><![CDATA[<!-- BEGIN code_open --><dl class="codebox"><dt>{L_CODE}: <a href="#" onclick="selectCode(this); return false;">{L_SELECT_ALL_CODE}</a></dt><dd><code><!-- END code_open -->
@@ -37,8 +58,7 @@
 		<open src="styles/prosilver/template/overall_footer.html">
 			<edit>
 				<find><![CDATA[<div id="page-footer">]]></find>
-				<action type="after-add"><![CDATA[
-<script type="text/javascript">
+				<action type="after-add"><![CDATA[<script type="text/javascript">
         var theonload = window.onload;
         window.onload = function(){
             theonload();
@@ -51,7 +71,7 @@
 			<edit>
 				<find><![CDATA[</head>]]></find>
 				<action type="before-add"><![CDATA[<script type="text/javascript" src="{ROOT_PATH}js/prettify/js/prettify.js"></script>
-<link href="{ROOT_PATH}js/prettify/css/prettify.css" type="text/css" rel="stylesheet" />]]></action>
+<link href="{ROOT_PATH}js/prettify/css/{GOPR_THEME}.css" type="text/css" rel="stylesheet" />]]></action>
 			</edit>
 		</open>
 	</action-group>
