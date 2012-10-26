@@ -8,10 +8,13 @@
 		<license><![CDATA[http://opensource.org/licenses/gpl-license.php GNU General Public License v2]]></license>
 		<title lang="en"><![CDATA[Google Prettify automatic code highlighting]]></title>
 		<description lang="en"><![CDATA[this uses the Google Prettify javascript to automatically detect and prettify code used in the stock/default phpbb3 code tag. Syntax is automatically detected by Google prettify.]]></description>
-		<author-notes lang="en"><![CDATA[nothing special. once the mod is installed apply it to your styles then refresh templates if needed. change styles in the General/Board Settings page.]]></author-notes>
+		<author-notes lang="en"><![CDATA[nothing special. once the mod is installed apply it to your styles then refresh templates if needed. change styles in the General/Board Features page.
+
+check the github link in author url for info and help.]]></author-notes>
 		<author-group>
 			<author>
 				<username><![CDATA[randomessence]]></username>
+				<homepage><![CDATA[https://github.com/randomessence/gPrettifyphpbb3mod]]></homepage>
 			</author>
 		</author-group>
 		<mod-version>1.0.1</mod-version>
