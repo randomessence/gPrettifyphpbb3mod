@@ -17,7 +17,7 @@ What does this mean? Well it means two things to the end user.
 
 **Second :** Google prettify is loaded onto the board and can be used with custom bbcodes to have a more customised display.
 
-**bbcode using a `<pre>` tag 
+**bbcode** using a `<pre>` tag 
 
 `<pre class="prettyprint">{TEXT}</pre>`
 
