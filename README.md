@@ -6,12 +6,12 @@ What is does is very simple.
 
 **1:** it loads [Google Prettify](http://code.google.com/p/google-code-prettify/) into the `overall_header.html` of Prosilver.
 
-**2:** It adds a `class="prettyprint"` to the exisiting and built in phpbb 3 `[code]` tag. 
+**2:** It adds a `class="prettyprint"` to the existing and built in phpbb 3 `[code]` tag. 
 
 
 What does this mean? Well it means two things to the end user.
 
-**First :** All code used in the stock code tags will be detected and if macthed, prettified by goolge prettify autmatically. (the sons of obsidian css is being used here)
+**First :** All code used in the stock code tags will be detected and if matched, prettified by Google Prettify automatically. (the sons of obsidian css is being used here)
 
 ![](https://raw.github.com/randomessence/gPrettifyphpbb3mod/master/contrib/examples/code.png)
 
@@ -19,9 +19,7 @@ What does this mean? Well it means two things to the end user.
 
 **bbcode using a `<pre>` tag 
 
-`<pre class="prettyprint">
-{TEXT}
-</pre>`
+`<pre class="prettyprint">{TEXT}</pre>`
 
 or
 
