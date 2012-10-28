@@ -23,66 +23,14 @@ check the github link in author url for info and help.]]></author-notes>
 			<time>60</time>
 			<target-version>3.0.11</target-version>
 		</installation>
-		<link-group>
-			<link type="template" href="contrib/subsilver2/subsilver2.xml" lang="en">subsilver2</link>
-			<link type="language" href="contrib/languages/en_us.xml" lang="en">en_us</link>
-		</link-group>
 	</header>
 	<action-group>
-		<copy>
-			<file from="root/js/prettify/js/*.*" to="js/prettify/js/*.*"/>
-			<file from="root/js/prettify/css/*.*" to="js/prettify/css/*.*"/>
-		</copy>
-		<open src="includes/functions.php">
-			<edit>
-				<find><![CDATA[	// The following assigns all _common_ variables that may be used at any point in a template.]]></find>
-				<action type="before-add"><![CDATA[     if (empty($config['gopr_theme'])) 
-     {
-     set_config('gopr_theme', 'github', false);
-     }]]></action>
-			</edit>
-			<edit>
-				<find><![CDATA[		'SITE_DESCRIPTION'				=> $config['site_desc'],]]></find>
-				<action type="after-add"><![CDATA[		'GOPR_THEME'					=> $config['gopr_theme'],]]></action>
-			</edit>
-		</open>
-		<open src="includes/acp/acp_board.php">
-			<edit>
-				<find><![CDATA[						'legend2'				=> 'ACP_LOAD_SETTINGS',]]></find>
-				<action type="before-add"><![CDATA[						'gopr_theme'			=> array('lang' => 'GOPR_THEME_NAME',		'validate' => 'string',	'type' => 'text:40:255', 'explain' => true),]]></action>
-			</edit>
-		</open>
-		<open src="language/en/acp/board.php">
+		<open src="language/en_us/acp/board.php">
 			<edit>
 				<find><![CDATA[	'JAB_USERNAME_EXPLAIN'		=> 'Specify a registered username or a valid JID. The username will not be checked for validity. If you only specify a username, then your JID will be the username and the server you specified above. Else, specify a valid JID, for example user@jabber.org.',]]></find>
 				<action type="after-add"><![CDATA[// Google Prettify Theme
 	'GOPR_THEME_NAME'				=> 'Google Prettify Theme',
 	'GOPR_THEME_NAME_EXPLAIN'		=> 'To change the theme to one of the included themes you need to specify the theme name here. A theme name is the name of the css file. So for sunburst.css we enter: sunburst.',]]></action>
-			</edit>
-		</open>
-		<open src="styles/prosilver/template/bbcode.html">
-			<edit>
-				<find><![CDATA[<!-- BEGIN code_open --><dl class="codebox"><dt>{L_CODE}: <a href="#" onclick="selectCode(this); return false;">{L_SELECT_ALL_CODE}</a></dt><dd><code><!-- END code_open -->
-<!-- BEGIN code_close --></code></dd></dl><!-- END code_close -->]]></find>
-				<action type="replace-with"><![CDATA[<!-- BEGIN code_open --><dl class="codebox"><dt>{L_CODE}: <a href="#" onclick="selectCode(this); return false;">{L_SELECT_ALL_CODE}</a></dt><dd><code class="prettyprint"><!-- END code_open -->
-<!-- BEGIN code_close --></code></dd></dl><!-- END code_close -->]]></action>
-			</edit>
-		</open>
-		<open src="styles/prosilver/template/overall_footer.html">
-			<edit>
-				<find><![CDATA[<div id="page-footer">]]></find>
-				<action type="after-add"><![CDATA[<script type="text/javascript">
-    document.addEventListener('DOMContentLoaded',function() {
-        prettyPrint();
-    });
-</script>]]></action>
-			</edit>
-		</open>
-		<open src="styles/prosilver/template/overall_header.html">
-			<edit>
-				<find><![CDATA[</head>]]></find>
-				<action type="before-add"><![CDATA[<script type="text/javascript" src="{ROOT_PATH}js/prettify/js/prettify.js"></script>
-<link href="{ROOT_PATH}js/prettify/css/{GOPR_THEME}.css" type="text/css" rel="stylesheet" />]]></action>
 			</edit>
 		</open>
 	</action-group>
