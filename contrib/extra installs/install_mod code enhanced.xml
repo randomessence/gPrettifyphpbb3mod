@@ -43,7 +43,7 @@ check the github link in author url for info and help.]]></author-notes>
 			</edit>
 			<edit>
 				<find><![CDATA[		'SITE_DESCRIPTION'				=> $config['site_desc'],]]></find>
-				<action type="after-add"><![CDATA[		'GOPR_THEME'					=> $config['gopr_theme'],]]></action>
+				<action type="before-add"><![CDATA[		'GOPR_THEME'					=> $config['gopr_theme'],]]></action>
 			</edit>
 		</open>
 		<open src="includes/acp/acp_board.php">
