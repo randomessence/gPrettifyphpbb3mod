@@ -6,7 +6,7 @@
 	<header>
 		<meta name="generator" content="MODX file generated with PP MODX Creator by tumba25 (online version)"/>
 		<license><![CDATA[http://opensource.org/licenses/gpl-license.php GNU General Public License v2]]></license>
-		<title lang="en"><![CDATA[Google Prettify automatic code highlighting]]></title>
+		<title lang="en"><![CDATA[Google Prettify [code] 1.0.2]]></title>
 		<description lang="en"><![CDATA[this uses the Google Prettify javascript to automatically detect and prettify code used in the stock/default phpbb3 code tag. Syntax is automatically detected by Google prettify.]]></description>
 		<author-notes lang="en"><![CDATA[nothing special. once the mod is installed apply it to your styles then refresh templates if needed. change styles in the General/Board Features page.
 
@@ -82,7 +82,9 @@ check the github link in author url for info and help.]]></author-notes>
 		<open src="styles/prosilver/template/overall_header.html">
 			<edit>
 				<find><![CDATA[</head>]]></find>
-				<action type="before-add"><![CDATA[<script type="text/javascript" src="{ROOT_PATH}js/prettify/js/prettify.js"></script>
+				<action type="before-add"><![CDATA[<!-- Google Prettify -->
+
+<script type="text/javascript" src="{ROOT_PATH}js/prettify/js/prettify.js"></script>
 <link href="{ROOT_PATH}js/prettify/css/{GOPR_THEME}.css" type="text/css" rel="stylesheet" />]]></action>
 			</edit>
 		</open>

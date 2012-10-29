@@ -82,7 +82,9 @@ check the github link in author url for info and help.]]></author-notes>
 		<open src="styles/prosilver/template/overall_header.html">
 			<edit>
 				<find><![CDATA[</head>]]></find>
-				<action type="before-add"><![CDATA[<script type="text/javascript" src="{ROOT_PATH}js/prettify/js/prettify.js"></script>
+				<action type="before-add"><![CDATA[<!-- Google Prettify -->
+
+<script type="text/javascript" src="{ROOT_PATH}js/prettify/js/prettify.js"></script>
 <link href="{ROOT_PATH}js/prettify/css/{GOPR_THEME}.css" type="text/css" rel="stylesheet" />]]></action>
 			</edit>
 		</open>
