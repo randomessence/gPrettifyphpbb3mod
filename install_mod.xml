@@ -55,9 +55,10 @@ check the github link in author url for info and help.]]></author-notes>
 		<open src="language/en/acp/board.php">
 			<edit>
 				<find><![CDATA[	'JAB_USERNAME_EXPLAIN'		=> 'Specify a registered username or a valid JID. The username will not be checked for validity. If you only specify a username, then your JID will be the username and the server you specified above. Else, specify a valid JID, for example user@jabber.org.',]]></find>
-				<action type="after-add"><![CDATA[// Google Prettify Theme
+				<action type="after-add"><![CDATA[// START	Google Prettify Theme
 	'GOPR_THEME_NAME'				=> 'Google Prettify Theme',
-	'GOPR_THEME_NAME_EXPLAIN'		=> 'To change the theme to one of the included themes you need to specify the theme name here. A theme name is the name of the css file. So for sunburst.css we enter: sunburst.',]]></action>
+	'GOPR_THEME_NAME_EXPLAIN'		=> 'To change the theme to one of the included themes you need to specify the theme name here. A theme name is the name of the css file. So for sunburst.css we enter: sunburst.',
+// END		Google Prettify Theme]]></action>
 			</edit>
 		</open>
 		<open src="styles/prosilver/template/bbcode.html">

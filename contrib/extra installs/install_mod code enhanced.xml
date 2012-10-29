@@ -6,8 +6,8 @@
 	<header>
 		<meta name="generator" content="MODX file generated with PP MODX Creator by tumba25 (online version)"/>
 		<license><![CDATA[http://opensource.org/licenses/gpl-license.php GNU General Public License v2]]></license>
-		<title lang="en"><![CDATA[Google Prettify automatic code[enhanced] highlighting]]></title>
-		<description lang="en"><![CDATA[this uses the Google Prettify javascript to automatically detect and prettify code used in the stock/default phpbb3 code tag after the code[enhanced] mod has been installed. Syntax is automatically detected by Google prettify.]]></description>
+		<title lang="en"><![CDATA[Google Prettify [code]enhanced 1.0.2]]></title>
+		<description lang="en"><![CDATA[this uses the Google Prettify javascript to automatically detect and prettify code used in the stock/default phpbb3 code tag. Syntax is automatically detected by Google prettify.]]></description>
 		<author-notes lang="en"><![CDATA[nothing special. once the mod is installed apply it to your styles then refresh templates if needed. change styles in the General/Board Features page.
 
 check the github link in author url for info and help.]]></author-notes>
@@ -17,20 +17,30 @@ check the github link in author url for info and help.]]></author-notes>
 				<homepage><![CDATA[https://github.com/randomessence/gPrettifyphpbb3mod]]></homepage>
 			</author>
 		</author-group>
-		<mod-version>1.0.1</mod-version>
+		<mod-version>1.0.2</mod-version>
 		<installation>
 			<level>easy</level>
 			<time>60</time>
 			<target-version>3.0.11</target-version>
 		</installation>
+		<link-group>
+			<link type="template" href="contrib/subsilver2/subsilver2.xml" lang="en">subsilver2</link>
+			<link type="language" href="contrib/languages/en_us.xml" lang="en">en_us</link>
+		</link-group>
 	</header>
 	<action-group>
-		<sql><![CDATA[INSERT IGNORE INTO `phpbb_config` (`config_name`, `config_value`, `is_dynamic`) VALUES('gopr_theme', 'prettify', 0);]]></sql>
 		<copy>
 			<file from="root/js/prettify/js/*.*" to="js/prettify/js/*.*"/>
 			<file from="root/js/prettify/css/*.*" to="js/prettify/css/*.*"/>
 		</copy>
 		<open src="includes/functions.php">
+			<edit>
+				<find><![CDATA[	// The following assigns all _common_ variables that may be used at any point in a template.]]></find>
+				<action type="before-add"><![CDATA[     if (empty($config['gopr_theme'])) 
+     {
+     set_config('gopr_theme', 'github', false);
+     }]]></action>
+			</edit>
 			<edit>
 				<find><![CDATA[		'SITE_DESCRIPTION'				=> $config['site_desc'],]]></find>
 				<action type="after-add"><![CDATA[		'GOPR_THEME'					=> $config['gopr_theme'],]]></action>
@@ -45,9 +55,10 @@ check the github link in author url for info and help.]]></author-notes>
 		<open src="language/en/acp/board.php">
 			<edit>
 				<find><![CDATA[	'JAB_USERNAME_EXPLAIN'		=> 'Specify a registered username or a valid JID. The username will not be checked for validity. If you only specify a username, then your JID will be the username and the server you specified above. Else, specify a valid JID, for example user@jabber.org.',]]></find>
-				<action type="after-add"><![CDATA[// Google Prettify Theme
+				<action type="after-add"><![CDATA[// START	Google Prettify Theme
 	'GOPR_THEME_NAME'				=> 'Google Prettify Theme',
-	'GOPR_THEME_NAME_EXPLAIN'		=> 'To change the theme to one of the included themes you need to specify the theme name here. A theme name is the name of the css file. So for sunburst.css we enter: sunburst.',]]></action>
+	'GOPR_THEME_NAME_EXPLAIN'		=> 'To change the theme to one of the included themes you need to specify the theme name here. A theme name is the name of the css file. So for sunburst.css we enter: sunburst.',
+// END		Google Prettify Theme]]></action>
 			</edit>
 		</open>
 		<open src="styles/prosilver/template/bbcode.html">
@@ -62,11 +73,9 @@ check the github link in author url for info and help.]]></author-notes>
 			<edit>
 				<find><![CDATA[<div id="page-footer">]]></find>
 				<action type="after-add"><![CDATA[<script type="text/javascript">
-        var theonload = window.onload;
-        window.onload = function(){
-            theonload();
-            prettyPrint();
-        }
+    document.addEventListener('DOMContentLoaded',function() {
+        prettyPrint();
+    });
 </script>]]></action>
 			</edit>
 		</open>
