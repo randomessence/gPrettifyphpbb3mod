@@ -30,8 +30,7 @@ check the github link in author url for info and help.]]></author-notes>
 	</header>
 	<action-group>
 		<copy>
-			<file from="root/js/prettify/js/*.*" to="js/prettify/js/*.*"/>
-			<file from="root/js/prettify/css/*.*" to="js/prettify/css/*.*"/>
+			<file from="root/*.*" to="*.*"/>
 		</copy>
 		<open src="includes/functions.php">
 			<edit>
