@@ -24,8 +24,8 @@ check the github link in author url for info and help.]]></author-notes>
 			<target-version>3.0.11</target-version>
 		</installation>
 		<link-group>
-			<link type="template" href="contrib/extrainstalls/subsilver2.xml" lang="en">subsilver2</link>
-			<link type="language" href="contrib/languages/en_us.xml" lang="en">en_us</link>
+			<link type="template" href="subsilver2.xml" lang="en">subsilver2</link>
+			<link type="language" href="en_us.xml" lang="en">en_us</link>
 		</link-group>
 	</header>
 	<action-group>
