@@ -36,10 +36,12 @@ check the github link in author url for info and help.]]></author-notes>
 		<open src="includes/functions.php">
 			<edit>
 				<find><![CDATA[	// The following assigns all _common_ variables that may be used at any point in a template.]]></find>
-				<action type="before-add"><![CDATA[     if (empty($config['gopr_theme'])) 
-     {
-     set_config('gopr_theme', 'github', false);
-     }]]></action>
+				<action type="before-add"><![CDATA[	// START Google Prettify
+	if (empty($config['gopr_theme'])) 
+	{
+	set_config('gopr_theme', 'github', false);
+	}
+	// END Google Prettify]]></action>
 			</edit>
 			<edit>
 				<find><![CDATA[		'SITE_DESCRIPTION'				=> $config['site_desc'],]]></find>
@@ -54,10 +56,13 @@ check the github link in author url for info and help.]]></author-notes>
 		</open>
 		<open src="language/en/acp/board.php">
 			<edit>
-				<find><![CDATA[	'JAB_USERNAME_EXPLAIN'		=> 'Specify a registered username or a valid JID. The username will not be checked for validity. If you only specify a username, then your JID will be the username and the server you specified above. Else, specify a valid JID, for example user@jabber.org.',]]></find>
+				<find><![CDATA[	'JAB_USERNAME_EXPLAIN'		=> 'Specify a registered username or a valid JID. The username will not be checked for validity. If you only specify a username, then your JID will be the username and the server you specified above. Else, specify a valid JID, for example user@jabber.org.',
+));]]></find>
 				<action type="after-add"><![CDATA[// START	Google Prettify Theme
+$lang = array_merge($lang, array(
 	'GOPR_THEME_NAME'				=> 'Google Prettify Theme',
 	'GOPR_THEME_NAME_EXPLAIN'		=> 'To change the theme to one of the included themes you need to specify the theme name here. A theme name is the name of the css file. So for sunburst.css we enter: sunburst.',
+));
 // END		Google Prettify Theme]]></action>
 			</edit>
 		</open>
